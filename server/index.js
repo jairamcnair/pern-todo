@@ -22,7 +22,7 @@ app.use(express.json()); // this gives us access to the request.body object
 // create a todo
 app.post("/todos", async(req, res) => {
     try{
-        const{ descrption } = req.body; // get's the JSON requested object
+        const{ description } = req.body; // get's the JSON requested object
 
         // pass todo description to query
         const newTodo = await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING *", [description]);
